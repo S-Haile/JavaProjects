@@ -1,0 +1,12 @@
+public class GrayScale1Filter implements Filter {
+  
+  public void filter(PixelImage theImage) {
+        
+        // get the data from the image
+        Pixel[][] data = theImage.getData();
+     
+        
+        
+        
+  }
+}

@@ -1,0 +1,27 @@
+public class RotateCounterClockwiseFilter implements Filter {
+  
+  public void filter (PixelImage theImage){
+    
+   // get the data from the image
+        Pixel[][] data = theImage.getData();
+        Pixel[][] rotatedPixel = new Pixel[data.length][data[0].length];
+         
+        for(int i = 0; i < theImage.getHeight(); i++){
+         for(int row = 0; row < theImage.getHeight(); row++) {
+          
+           rotatedPixel[data[0].length -1 -row][i] = data[i][row];
+           
+           
+           
+           
+       
+         }
+         }
+      
+             if(theImage.getHeight() == theImage.getWidth()){
+                theImage.setData(rotatedPixel);
+         }else{
+           throw new IllegalStateException("The image you have provided is not square.");
+         }
+  }
+}

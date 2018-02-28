@@ -1,0 +1,3 @@
+public class UnsharpMaskingFilter implements Filter{
+  void filter(PixelImage theImage){
+  }}

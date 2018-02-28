@@ -1,0 +1,43 @@
+public EdgyFilter implements Filter{
+  
+   public void filter (PixelImage theImage){
+    
+ for (int row = 1; row < theImage.getHeight()-1; row++){
+            for (int col = 1; col < theImage.getWidth()-1; col++) {
+              for(int i = 0; i < 3; i++){
+                
+         
+                int Color =  data[row-1][col-1].rgb[i] * -1;
+                int Color2 = data[row-1][col].rgb[i] * -1;
+                int Color3 = data[row-1][col + 1].rgb[i] * -1;
+                int Color4 = data[row][col + 1].rgb[i] * -1;
+                int Color5 = data[row+1][col+1].rgb[i] * -1;
+                int Color6 = data[row+1][col].rgb[i] * -1;
+                int Color7 = data[row+1][col-1].rgb[i] * -1;
+                int Color8 = data[row - 1][col].rgb[i] * -1;
+                int Color9 = data[row][col].rgb[i] * 9;
+                
+              int finalC = Color+Color2+Color3+Color4+Color5+Color6+Color7+Color8+Color9;
+              if(finalC > 255){
+                finalC = 255;
+              }
+              if(finalC < 0){
+                finalC = 0;
+              }
+            
+              
+             
+    
+         temp[row][col].rgb[i] = finalC;      
+         
+       
+                
+            }
+           }
+           }
+      
+        
+        // update the image with the moved pixels
+        theImage.setData(temp);
+  }
+}

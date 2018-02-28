@@ -1,0 +1,23 @@
+public class GrayScale2Filter implements Filter {
+  
+  public void filter(PixelImage theImage) {
+        
+        // get the data from the image
+        Pixel[][] data = theImage.getData();
+     
+        
+         for (int row = 0; row < theImage.getHeight(); row++) {
+            for (int col = 0; col < theImage.getWidth(); col++) {
+           int temp =  data[row][col].rgb[Pixel.RED];
+           int temp2 =  data[row][col].rgb[Pixel.BLUE];
+           int temp3 =  data[row][col].rgb[Pixel.GREEN];
+           
+        data[row][col].rgb[Pixel.RED] = (int)((11 * temp + 16 *temp3 + 5 * temp2) / 32);
+        data[row][col].rgb[Pixel.BLUE] = (int)((11 * temp + 16 *temp3 + 5 * temp2) / 32);
+        data[row][col].rgb[Pixel.GREEN] =  (int)((11 * temp + 16 *temp3 + 5 * temp2) / 32);
+  }
+}
+             // update the image with the moved pixels
+        theImage.setData(data);
+  }
+}

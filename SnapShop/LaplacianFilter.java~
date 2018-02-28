@@ -1,0 +1,5 @@
+public class LaplacianFilter implements Filter{
+  
+  public void filter(PixelImage theImage){
+  }
+}
